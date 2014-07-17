@@ -4,9 +4,10 @@ $CASEIN_USER_ACCESS_LEVEL_ADMIN = 0
 $CASEIN_USER_ACCESS_LEVEL_USER = 10
 
 module Casein
-  class AdminUser < ActiveRecord::Base
-
-	  def self.table_name
+  class AdminUser
+    include Mongoid::Document
+    
+    def self.table_name
       self.to_s.gsub("::", "_").tableize
     end
 
